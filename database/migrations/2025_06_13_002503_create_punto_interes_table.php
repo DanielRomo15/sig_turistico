@@ -11,15 +11,7 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('punto_interes', function (Blueprint $table) {
-        $table->id();
-        $table->string('nombre');
-        $table->text('descripcion');
-        $table->string('categoria');
-        $table->string('imagen')->nullable();
-        $table->decimal('latitud', 10, 7);
-        $table->decimal('longitud', 10, 7);
-        $table->timestamps();
+    
     });
 }
 
