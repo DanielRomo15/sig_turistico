@@ -40,7 +40,22 @@ class PuntoInteresController extends Controller
             'imagen' => 'nullable|image'
         ]);
 
-       
+        $punto = new PuntoInteres($request->only(['nombre', 'descripcion', 'categoria', 'latitud', 'longitud']));
+
+        if ($request->hasFile('imagen')) {
+            $punto->imagen = $request->file('imagen')->store('imagenes', 'public');
+        }
+
+        $punto->save();
+        return redirect()->route('puntos.index')->with('success', 'Punto registrado correctamente');
+    }
+
+    public function show($id)
+    {
+        $punto = PuntoInteres::findOrFail($id);
+        return view('puntos.show', compact('punto'));
+    }
+
     public function edit($id)
     {
         $punto = PuntoInteres::findOrFail($id);
