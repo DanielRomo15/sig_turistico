@@ -1,4 +1,10 @@
+<?php
 
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\PuntoInteres;
+use Illuminate\Support\Facades\Storage;
 
 class PuntoInteresController extends Controller
 {
